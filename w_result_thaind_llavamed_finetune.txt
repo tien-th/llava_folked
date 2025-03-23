@@ -1,0 +1,186 @@
+[2025-03-01 16:23:09,692] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/user01/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2025-03-01 16:23:11,354] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0: setting --include=localhost:0
+[2025-03-01 16:23:11,355] [INFO] [runner.py:607:main] cmd = /home/user01/miniconda3/envs/llava_thaind/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None llava/train/train_mem.py --deepspeed ./scripts/zero2.json --lora_enable True --model_name_or_path ./checkpoints/llava-med-v1.5-mistral-7b --version v1 --data_path /home/user01/aiotlab/ducntm/FmMed/src/converted_output.json --image_folder /home/user01/aiotlab/thaind/DAC001_CTAC3.75mm_H_1001_PETWB3DAC001 --vision_tower /home/user01/aiotlab/htien/pet-clip/scripts/test_CTVit.18000.pt --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --bf16 True --output_dir ./checkpoints/llava-llava-med-v1.5-mistral-7b-finetune_lora-test --num_train_epochs 1 --per_device_train_batch_size 16 --per_device_eval_batch_size 4 --gradient_accumulation_steps 1 --evaluation_strategy no --save_strategy steps --save_steps 50000 --save_total_limit 1 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 True --model_max_length 2048 --gradient_checkpointing True --lazy_preprocess True --dataloader_num_workers 2 --report_to wandb
+[2025-03-01 16:23:13,810] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/user01/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2025-03-01 16:23:15,246] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2025-03-01 16:23:15,246] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2025-03-01 16:23:15,246] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2025-03-01 16:23:15,246] [INFO] [launch.py:164:main] dist_world_size=1
+[2025-03-01 16:23:15,246] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2025-03-01 16:23:15,256] [INFO] [launch.py:256:main] process 948999 spawned with command: ['/home/user01/miniconda3/envs/llava_thaind/bin/python', '-u', 'llava/train/train_mem.py', '--local_rank=0', '--deepspeed', './scripts/zero2.json', '--lora_enable', 'True', '--model_name_or_path', './checkpoints/llava-med-v1.5-mistral-7b', '--version', 'v1', '--data_path', '/home/user01/aiotlab/ducntm/FmMed/src/converted_output.json', '--image_folder', '/home/user01/aiotlab/thaind/DAC001_CTAC3.75mm_H_1001_PETWB3DAC001', '--vision_tower', '/home/user01/aiotlab/htien/pet-clip/scripts/test_CTVit.18000.pt', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--bf16', 'True', '--output_dir', './checkpoints/llava-llava-med-v1.5-mistral-7b-finetune_lora-test', '--num_train_epochs', '1', '--per_device_train_batch_size', '16', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '1', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '50000', '--save_total_limit', '1', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'True', '--model_max_length', '2048', '--gradient_checkpointing', 'True', '--lazy_preprocess', 'True', '--dataloader_num_workers', '2', '--report_to', 'wandb']
+[2025-03-01 16:23:21,495] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/user01/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2025-03-01 16:23:22,328] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-03-01 16:23:22,329] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+initialize_vision_modules: build_vision_tower: 35
+config:  LlavaConfig {
+  "_attn_implementation_autoset": true,
+  "_name_or_path": "./checkpoints/llava-med-v1.5-mistral-7b",
+  "architectures": [
+    "LlavaMistralForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "feature_outs": "encoder+decoder",
+  "freeze_mm_mlp_adapter": false,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "img_size": 640,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 32768,
+  "mlp_bias": false,
+  "mm_hidden_size": 1024,
+  "mm_projector_lr": null,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "proj_vis_to_txt_tokens": false,
+  "prompt_segtok_w_instruct": false,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "segtok_posembed": "sincos",
+  "sliding_window": null,
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.3",
+  "tune_mm_mlp_adapter": false,
+  "tune_vision_tokenizer": "none",
+  "use_cache": true,
+  "use_mm_proj": true,
+  "vision_backbone": "convnextlarge",
+  "vision_tokenizer_lr": null,
+  "vocab_size": 32000
+}
+
+mlp2x_gelu 1024 4096
+Adding LoRA adapters...
+initialize_vision_modules
+get_vision_tower is None 61
+Loading Vision Tower from:  /home/user01/aiotlab/htien/pet-clip/scripts/test_CTVit.18000.pt
+Using mm_hidden_size: 294912
+initialize_vision_modules: build_vision_projector: 81
+linear 294912 4096
+Formatting inputs...Skip in lazy mode
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.134, 'grad_norm': 0.6536730527877808, 'learning_rate': 2e-05, 'epoch': 0.05}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.1841, 'grad_norm': 0.7826718688011169, 'learning_rate': 1.9863613034027224e-05, 'epoch': 0.1}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.1646, 'grad_norm': 0.9938973188400269, 'learning_rate': 1.9458172417006347e-05, 'epoch': 0.15}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0966, 'grad_norm': 0.8906526565551758, 'learning_rate': 1.879473751206489e-05, 'epoch': 0.2}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0908, 'grad_norm': 0.5687215924263, 'learning_rate': 1.789140509396394e-05, 'epoch': 0.25}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0399, 'grad_norm': 0.6772546768188477, 'learning_rate': 1.6772815716257414e-05, 'epoch': 0.3}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0132, 'grad_norm': 0.5761224031448364, 'learning_rate': 1.5469481581224274e-05, 'epoch': 0.35}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0132, 'grad_norm': 0.49538958072662354, 'learning_rate': 1.4016954246529697e-05, 'epoch': 0.4}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 1.0164, 'grad_norm': 0.49117356538772583, 'learning_rate': 1.2454854871407993e-05, 'epoch': 0.45}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.9685, 'grad_norm': 0.43594297766685486, 'learning_rate': 1.0825793454723325e-05, 'epoch': 0.5}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.9256, 'grad_norm': 0.4270572066307068, 'learning_rate': 9.174206545276678e-06, 'epoch': 0.55}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.9097, 'grad_norm': 0.3839757442474365, 'learning_rate': 7.545145128592009e-06, 'epoch': 0.6}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.9253, 'grad_norm': 0.4285748600959778, 'learning_rate': 5.983045753470308e-06, 'epoch': 0.65}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8684, 'grad_norm': 0.37714684009552, 'learning_rate': 4.530518418775734e-06, 'epoch': 0.7}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8895, 'grad_norm': 0.40352410078048706, 'learning_rate': 3.2271842837425917e-06, 'epoch': 0.75}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8634, 'grad_norm': 0.36932238936424255, 'learning_rate': 2.1085949060360654e-06, 'epoch': 0.8}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8875, 'grad_norm': 0.4621170163154602, 'learning_rate': 1.2052624879351105e-06, 'epoch': 0.85}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8456, 'grad_norm': 0.3790096342563629, 'learning_rate': 5.418275829936537e-07, 'epoch': 0.9}
+images:  torch.Size([16, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([16, 294912])
+image_features:  torch.Size([16, 4096])
+{'loss': 0.8748, 'grad_norm': 0.3918963074684143, 'learning_rate': 1.3638696597277678e-07, 'epoch': 0.95}
+images:  torch.Size([7, 1, 140, 480, 480])
+tokens: torch.bfloat16
+torch.Size([7, 294912])
+image_features:  torch.Size([7, 4096])
+{'loss': 0.8792, 'grad_norm': 0.4065050184726715, 'learning_rate': 0.0, 'epoch': 1.0}
+{'train_runtime': 258.0995, 'train_samples_per_second': 1.205, 'train_steps_per_second': 0.077, 'train_loss': 0.9795238047838211, 'epoch': 1.0}
+[1;34mwandb[0m: 🚀 View run [33mtest_code[0m at: [34mhttps://wandb.ai/tienhuu060102-hust/FMMed/runs/azz0rjhq[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250301_162320-azz0rjhq/logs[0m
+[2025-03-01 16:29:44,661] [INFO] [launch.py:351:main] Process 948999 exits successfully.

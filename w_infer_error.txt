@@ -1,0 +1,10 @@
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.38it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.69it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.00it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  7.42it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  7.72it/s]
+Traceback (most recent call last):
+  File "llava/train/test_99.py", line 952, in <module>
+    test(lora_adapter_path = "/home/user01/aiotlab/thaind/LLaVA/checkpoints/ctvit_llavamed-llava-med-v1.5-mistral-7b-finetune_RotateAug_lora_10_epochs/checkpoint-2345" # Replace with your actual adapter path
+  File "llava/train/test_99.py", line 849, in test
+    model.get_model().initialize_vision_modules(
+  File "/home/user01/aiotlab/thaind/LLaVA/llava/model/llava_arch.py", line 80, in initialize_vision_modules
+    self.config.mm_hidden_size = vision_tower.hidden_size
+AttributeError: 'NoneType' object has no attribute 'hidden_size'
