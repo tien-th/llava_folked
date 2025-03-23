@@ -406,7 +406,6 @@ class CTViT(nn.Module):
             print(vq_mask.dtype)
 
         
-        print('tokens:' , tokens.dtype )
         tokens, indices, commit_loss = self.vq(tokens, mask = vq_mask)
 
         if return_only_codebook_ids:

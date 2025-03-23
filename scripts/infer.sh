@@ -26,7 +26,7 @@ deepspeed llava/train/test_99.py \
     --data_path /home/user01/aiotlab/thaind/data_desc_conv_train.json \
     --eval_data_path /home/user01/aiotlab/thaind/data_desc_conv_eval.json \
     --image_folder /home/user01/aiotlab/thaind/DAC001_CTAC3.75mm_H_1001_PETWB3DAC001 \
-    --vision_tower home/user10/huutien/simplified_anatomask/results/anatomask_100_epochs_8_batch_aug/encoder_only_9.pt \
+    --vision_tower /home/user10/huutien/simplified_anatomask/results/anatomask_100_epochs_8_batch_aug/encoder_only_9.pt \
     --pretrain_mm_mlp_adapter /home/user01/aiotlab/thaind/LLaVA/checkpoints/ctvit_projector_llavamed-llava-med-v1.5-mistral-7b-pretrain_RotateAug/checkpoint-1912/mm_projector.bin \
     --mm_vision_select_layer -2 \
     --mm_use_im_start_end False \

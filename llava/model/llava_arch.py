@@ -147,7 +147,7 @@ class LlavaMetaForCausalLM(ABC):
         return self.get_model().get_vision_tower()
 
     def encode_images(self, images):
-        print('images: ', images.shape)
+    
         image_features = self.get_model().get_vision_tower()(images)
         print(image_features.shape)
         image_features = self.get_model().mm_projector(image_features)
@@ -212,7 +212,7 @@ class LlavaMetaForCausalLM(ABC):
         # else:
         #    image_features = self.encode_images(images)
         image_features = self.encode_images(images)
-        print('image_features: ', image_features.shape)
+
         # TODO: image start / end is not implemented here to support pretraining.
         if getattr(self.config, 'tune_mm_mlp_adapter', False) and getattr(self.config, 'mm_use_im_start_end', False):
             raise NotImplementedError
