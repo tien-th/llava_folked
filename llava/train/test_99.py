@@ -949,5 +949,5 @@ def test(lora_adapter_path=None, attn_implementation=None):
 
 if __name__ == "__main__":
     
-    test(lora_adapter_path = "/home/user01/aiotlab/thaind/LLaVA/checkpoints/ctvit_llavamed-llava-med-v1.5-mistral-7b-finetune_RotateAug_lora_10_epochs/checkpoint-2345" # Replace with your actual adapter path
+    test(lora_adapter_path = "/home/user01/aiotlab/thaind/LLaVA/checkpoints/ctvit_llavamed-llava-med-v1.5-mistral-7b-finetune_RotateAug_lora_10_epochs/checkpoint-1407" # Replace with your actual adapter path
 )

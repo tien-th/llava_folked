@@ -32,7 +32,7 @@ deepspeed llava/train/test_99.py \
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir ./checkpoints/ctvit_llavamed-$MODEL_VERSION-finetune_RotateAug_lora_10_epochs \
+    --output_dir ./checkpoints/ctvit_llavamed-$MODEL_VERSION-finetune_RotateAug_lora_10_epochs_1 \
     --num_train_epochs 10 \
     --per_device_train_batch_size 16 \
     --per_device_eval_batch_size 8 \
